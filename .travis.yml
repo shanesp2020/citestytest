@@ -25,7 +25,7 @@ android:
 
 # Emulator Management: Create, Start and Wait
 before_script:
-  - echo no | android create avd --force -n test -t android-29 --abi arm64-v8a -c 100M
+  - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
   - emulator -avd test -no-audio -no-window &
   - android-wait-for-emulator
   - adb shell input keyevent 82 &
@@ -38,3 +38,6 @@ cache:
     - $HOME/.gradle/caches/
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
+
+
+script: ./gradlew connectedAndroidTest
